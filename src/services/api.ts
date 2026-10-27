@@ -1,30 +1,32 @@
 import type { Recipe, RecipesResponse } from '../types/recipe'
 
-const API = 'https://dummyjson.com'
+const BASE_URL = 'https://dummyjson.com'
 
-export function getRecipes(): Promise<Recipe[]> {
-    const response = fetch(`${API}/recipes?limit=0`)
-        .then((data) => {
-            if (!data.ok) {
-                throw new Error('Erro ao buscar receitas')
-            }
-            return data.json()
-        })
-        .then((json: RecipesResponse) => {
-            return json.recipes
-        })
-
-    return response
+export class NotFoundError extends Error {
+  constructor(message = 'Recurso não encontrado') {
+    super(message)
+    this.name = 'NotFoundError'
+  }
 }
 
-export function getRecipeById(id: string): Promise<Recipe> {
-    const response = fetch(`${API}/recipes/${id}`)
-        .then((data) => {
-            if (!data.ok) {
-                throw new Error('Receita não encontrada')
-            }
-            return data.json()
-        })
+async function request<T>(path: string, signal?: AbortSignal): Promise<T> {
+  const response = await fetch(`${BASE_URL}${path}`, { signal })
 
-    return response
+  if (response.status === 404) {
+    throw new NotFoundError()
+  }
+  if (!response.ok) {
+    throw new Error(`Falha na requisição (${response.status})`)
+  }
+
+  return response.json() as Promise<T>
+}
+
+
+export function getRecipes(signal?: AbortSignal): Promise<RecipesResponse> {
+  return request<RecipesResponse>('/recipes?limit=0', signal)
+}
+
+export function getRecipe(id: string, signal?: AbortSignal): Promise<Recipe> {
+  return request<Recipe>(`/recipes/${encodeURIComponent(id)}`, signal)
 }
