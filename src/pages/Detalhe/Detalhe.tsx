@@ -1,8 +1,8 @@
 import { Link, useParams } from 'react-router-dom'
-import { BackLink } from '../components/BackLink/BackLink'
-import { StateMessage } from '../components/StateMessage/StateMessage'
-import { useRecipe } from '../hooks/useRecipes'
-import { formatMinutes, getTotalTime } from '../utils/time'
+import { BackLink } from '../../components/BackLink/BackLink'
+import { StateMessage } from '../../components/StateMessage/StateMessage'
+import { useRecipe } from '../../hooks/useRecipes'
+import { formatMinutes, getTotalTime } from '../../utils/time'
 import styles from './Detalhe.module.css'
 
 export default function Detalhe() {

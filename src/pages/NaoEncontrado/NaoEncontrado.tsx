@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { StateMessage } from '../components/StateMessage/StateMessage'
+import { StateMessage } from '../../components/StateMessage/StateMessage'
 import styles from './NaoEncontrado.module.css'
 
 export default function NaoEncontrada() {
