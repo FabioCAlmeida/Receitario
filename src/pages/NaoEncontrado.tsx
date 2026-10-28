@@ -14,6 +14,7 @@ export default function NaoEncontrada() {
           <Link to="/" className="btn">
             Voltar ao catálogo
           </Link>
+          
         }
       />
     </div>
