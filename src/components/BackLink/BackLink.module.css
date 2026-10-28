@@ -1,0 +1,29 @@
+.link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.circle {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-border-strong);
+    border-radius: 50%;
+    transition:
+        background-color 180ms ease,
+        border-color 180ms ease,
+        color 180ms ease;
+}
+
+.link:hover .circle {
+    background: var(--color-navy);
+    border-color: var(--color-navy);
+    color: #ffffff;
+}
