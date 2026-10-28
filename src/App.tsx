@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
-import Catalogo from './pages/Catalogo'
+import { CatalogPage } from './pages/Catalog/CatalogPage'
 import Detalhe from './pages/Detalhe'
 import NaoEncontrada from './pages/NaoEncontrado'
 
@@ -10,7 +10,7 @@ export default function App() {
 
       <Route element={<Layout />}>
 
-        <Route index element={<Catalogo />} />
+        <Route index element={<CatalogPage />} />
 
         <Route path="receitas/:id" element={<Detalhe />} />
 
