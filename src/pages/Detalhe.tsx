@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
+import { BackLink } from '../components/BackLink/BackLink'
 import { StateMessage } from '../components/StateMessage/StateMessage'
 import { useRecipe } from '../hooks/useRecipes'
 import { formatMinutes, getTotalTime } from '../utils/time'
@@ -65,9 +66,7 @@ export default function Detalhe() {
 
   return (
     <article className={`container ${styles.page}`}>
-      <Link to="/" className={styles.back}>
-        ← Voltar ao catálogo
-      </Link>
+      <BackLink to="/">Voltar ao catálogo</BackLink>
 
       <header className={styles.header}>
         <p className="eyebrow">{recipe.cuisine}</p>
