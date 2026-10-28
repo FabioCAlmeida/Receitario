@@ -1,0 +1,8 @@
+
+.page {
+  min-height: 55vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: 40px 72px;
+}
